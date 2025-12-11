@@ -7,4 +7,10 @@
     <RootNamespace>Uppfinaren_1._0</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Models/Data/" />
+    <Folder Include="Views/ArtworkGallery/" />
+    <Folder Include="Views/InventorGallery/" />
+  </ItemGroup>
+
 </Project>

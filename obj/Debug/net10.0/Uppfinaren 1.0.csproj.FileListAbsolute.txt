@@ -36,3 +36,4 @@
 /Users/mihailkliucnikov/Programming/VÄRNAMO YH /Inlämningsuppgifter/Uppfinaren 1.0/obj/Debug/net10.0/Uppfinaren 1.0.pdb
 /Users/mihailkliucnikov/Programming/VÄRNAMO YH /Inlämningsuppgifter/Uppfinaren 1.0/obj/Debug/net10.0/Uppfinaren 1.0.genruntimeconfig.cache
 /Users/mihailkliucnikov/Programming/VÄRNAMO YH /Inlämningsuppgifter/Uppfinaren 1.0/obj/Debug/net10.0/ref/Uppfinaren 1.0.dll
+/Users/mihailkliucnikov/Programming/VÄRNAMO YH /Inlämningsuppgifter/Uppfinaren 1.0/obj/Debug/net10.0/Uppfinaren 1.0.sourcelink.json
