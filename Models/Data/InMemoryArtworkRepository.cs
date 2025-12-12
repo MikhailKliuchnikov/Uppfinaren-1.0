@@ -4,7 +4,104 @@ namespace Uppfinaren_1._0.Models.Data;
 
 public class InMemoryArtworkRepository : IArtworkRepository
 {
-    private List<Artwork> _artworks = new List<Artwork>();
+    private List<Artwork> _artworks = new List<Artwork>
+    {
+        new Artwork(
+            1,
+            "Egg Emperor",
+            "Dr Eggman",
+            @"A gigantic mech empowered by a chaos emerald. Perfect for elimination of annoying blue hedgehogs.",
+            "/img/artworks/eggEmperor.png",
+            "Egg Battle bots"
+        ),
+        new Artwork(
+            2,
+            "Egg Mobile",
+            "Dr Eggman",
+            @"The Egg Mobile (エッグモービル Eggu Mōbiru?), alternatively spelled as the Eggmobile,
+            The Egg Mobile is known for its versatility, being capable of travelling across all types of terrain and being armed with several weapons of its own. Its most enduring feature is its compatibility with Eggman's various vehicles and creations and serves as well as an escape pod when they are inevitably defeated by Sonic and his allies.",
+            "/img/artworks/eggMobile.png",
+            "Egg vehicles"
+        ),
+        new Artwork(
+            3,
+            "Doomsday Machine",
+            "Dr Robotnick",
+            "large and advanced machine that served as the control center of the Doomsday Project, whose aim was to destroy all life on Mobius.",
+            "/img/artworks/doomsdayMachine.png",
+            "Evil hideouts"
+        ),
+        new Artwork(
+            4,
+            "Egg Albatross",
+            "Dr Eggman",
+            @"A massive airborne battle fortress and the final form of Eggman's sky-based ambitions. 
+            The Egg Albatross combines overwhelming firepower, rotating weapon modules, and an 
+            almost insulting confidence in its own invincibility. Designed to dominate the skies 
+            and crush resistance from above, it ultimately proves that no amount of armor can 
+            protect against gravity, teamwork, and a very fast blue hedgehog.",
+            "/img/artworks/eggAlbatross.png",
+            "Egg Battle bots"
+        ),
+        new Artwork(
+            5,
+            "Biobliterator",
+            "Dr. Nefarious",
+            @"A colossal superweapon built by Dr. Nefarious with one charming hobby: turning every organic lifeform into a robot.
+            In its ominous spherical form, it fires a transmogrification beam that converts targets instantly, then recharges between planetary attacks like it’s doing cardio.
+            When subtlety inevitably fails, it can unfold into a towering robot mode armed with missiles and plasma blasts. The ultimate statement piece for any anti-organic campaign.",
+            "/img/artworks/biobliterator.png",
+            "Nefarious superweapons"
+        ), 
+        new Artwork(
+            6,
+            "VX-99",
+            "Dr. Nefarious",
+            @"An elite combat robot engineered for televised destruction and maximum viewer engagement.
+            The VX-99 is fast, heavily armed, and annoyingly resilient, designed to hunt targets across
+            hostile arenas while shrugging off punishment like it’s part of the script. Built for
+            Ratchet’s gladiatorial nightmare, it represents Nefarious’ belief that violence is better
+            when it’s broadcast, sponsored, and deeply unfair.",
+            "/img/artworks/vx99.png",
+            "Combat robots"
+        ),
+        new Artwork(
+            7,
+            "Hypersonic Brainwave Scrambler",
+            "Dr. Nefarious",
+            @"A delightfully unethical mind control device engineered to hijack free will on a massive scale.
+    The Hypersonic Brainwave Scrambler emits powerful sonic frequencies that override rational thought,
+    forcing victims to obey commands whether they like it or not. Designed for planetary domination
+    with minimal physical effort, it perfectly reflects Dr. Nefarious’ core philosophy: why conquer
+    through force when you can reprogram everyone’s brain instead?",
+            "/img/artworks/HBS.png",
+            "Mind control devices"
+        ),
+        new Artwork(
+            8,
+            "Party Crasher",
+            "Dr. Nefarious",
+            @"A brutally cheerful close range weapon disguised as a celebration.
+    The Party Crasher fires a wide spread of explosive projectiles that turn
+    crowded rooms into instant chaos, shredding enemies before they can
+    reconsider their life choices. Loud, excessive, and deeply unsubtle,
+    it proves that Dr. Nefarious believes every fight deserves confetti, shockwaves,
+    and emotional damage.",
+            "img/artworks/partyCrasher.png",
+            "Weapons"
+        ),
+        new Artwork(
+            9,
+            "Death Egg Robot",
+            "Dr. Eggman",
+            @"A towering combat mech built as the ultimate expression of Eggman’s obsession with size, power,
+    and dramatic final battles. The Death Egg Robot is armed with crushing fists, heavy artillery,
+    and enough raw presence to blot out common sense. Deployed when subtle plans inevitably fail,
+    it exists to remind everyone that Eggman always saves his biggest tantrum for last.",
+            "img/artworks/deathEggRobot.png",
+            "Egg Battle bots"
+        ),
+    };
     private int _nextId = 1;
 
     public void Add(Artwork artwork)
@@ -22,11 +119,5 @@ public class InMemoryArtworkRepository : IArtworkRepository
     {
         return _artworks;
     }
-    public void InitializeArtworks(IEnumerable<Artwork> initialArtworks)
-    {
-        foreach (var artwork in initialArtworks)
-        {
-            Add(artwork);
-        }
-    }
+
 }

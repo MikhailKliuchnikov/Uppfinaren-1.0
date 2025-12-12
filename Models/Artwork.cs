@@ -6,13 +6,17 @@ public class Artwork
 {
     public int Id { get; set; }
     public string ? Title { get; set; } = "Very cool invention";
-    public Inventor inventor { get; set; }
+    public string Inventor { get; set; }
     public string ? Description { get; set; } = "A humble invention of a brilliant mind.";
     public string ? ImageUrl { get; set; } = "";
     public string ? Category { get; set; } = "Invention";
-    public Artwork(string title, Inventor inventor)
+    public Artwork(int id, string title, string inventor, string description, string image, string category)
     {
+        Id = id;
         Title = title;
-        this.inventor = inventor;
+        Inventor = inventor;
+        Description = description;
+        ImageUrl = image;
+        Category = category;
     } 
 }

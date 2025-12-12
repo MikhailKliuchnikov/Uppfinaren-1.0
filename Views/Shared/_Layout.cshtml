@@ -8,8 +8,22 @@
     <title>Uppfinnarens affär</title>
 </head>
 <body>
+    <header>
+        <nav>
+            <ul>
+                <li><a asp-controller="InventorGallery" asp-action="Index">Inventor Gallery</a></li>
+                <li><a asp-controller="ArtworkGallery" asp-action="Index">Artwork Gallery</a></li>
+            </ul>
+        </nav>
     <main>
         @RenderBody()
     </main>
+
+    <footer>
+        <h3>To learn more about the invention, read who the inventor is and seek his contact info in the Inventor database</h3>
+        <p>&copy; Invntions can cause harm, destruction, worldwide domination.<br>
+        All the responsibility for the invention one takes on itself. <br>
+        All the rights for inventions are reserved for the inventors.</p>
+        </footer>
 </body>
 </html>

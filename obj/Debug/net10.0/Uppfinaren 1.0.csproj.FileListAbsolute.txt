@@ -3,8 +3,6 @@
 /Users/mihailkliucnikov/Programming/VÄRNAMO YH /Inlämningsuppgifter/Uppfinaren 1.0/bin/Debug/net10.0/Uppfinaren 1.0.staticwebassets.runtime.json
 /Users/mihailkliucnikov/Programming/VÄRNAMO YH /Inlämningsuppgifter/Uppfinaren 1.0/bin/Debug/net10.0/Uppfinaren 1.0.staticwebassets.endpoints.json
 /Users/mihailkliucnikov/Programming/VÄRNAMO YH /Inlämningsuppgifter/Uppfinaren 1.0/bin/Debug/net10.0/Uppfinaren 1.0
-/Users/mihailkliucnikov/Programming/VÄRNAMO YH /Inlämningsuppgifter/Uppfinaren 1.0/bin/Debug/net10.0/Uppfinaren 1.0.deps.json
-/Users/mihailkliucnikov/Programming/VÄRNAMO YH /Inlämningsuppgifter/Uppfinaren 1.0/bin/Debug/net10.0/Uppfinaren 1.0.runtimeconfig.json
 /Users/mihailkliucnikov/Programming/VÄRNAMO YH /Inlämningsuppgifter/Uppfinaren 1.0/bin/Debug/net10.0/Uppfinaren 1.0.dll
 /Users/mihailkliucnikov/Programming/VÄRNAMO YH /Inlämningsuppgifter/Uppfinaren 1.0/bin/Debug/net10.0/Uppfinaren 1.0.pdb
 /Users/mihailkliucnikov/Programming/VÄRNAMO YH /Inlämningsuppgifter/Uppfinaren 1.0/obj/Debug/net10.0/rpswa.dswa.cache.json
@@ -15,6 +13,7 @@
 /Users/mihailkliucnikov/Programming/VÄRNAMO YH /Inlämningsuppgifter/Uppfinaren 1.0/obj/Debug/net10.0/Uppfinaren 1.0.MvcApplicationPartsAssemblyInfo.cache
 /Users/mihailkliucnikov/Programming/VÄRNAMO YH /Inlämningsuppgifter/Uppfinaren 1.0/obj/Debug/net10.0/Uppfinaren 1.0.RazorAssemblyInfo.cache
 /Users/mihailkliucnikov/Programming/VÄRNAMO YH /Inlämningsuppgifter/Uppfinaren 1.0/obj/Debug/net10.0/Uppfinaren 1.0.RazorAssemblyInfo.cs
+/Users/mihailkliucnikov/Programming/VÄRNAMO YH /Inlämningsuppgifter/Uppfinaren 1.0/obj/Debug/net10.0/Uppfinaren 1.0.sourcelink.json
 /Users/mihailkliucnikov/Programming/VÄRNAMO YH /Inlämningsuppgifter/Uppfinaren 1.0/obj/Debug/net10.0/rjimswa.dswa.cache.json
 /Users/mihailkliucnikov/Programming/VÄRNAMO YH /Inlämningsuppgifter/Uppfinaren 1.0/obj/Debug/net10.0/rjsmrazor.dswa.cache.json
 /Users/mihailkliucnikov/Programming/VÄRNAMO YH /Inlämningsuppgifter/Uppfinaren 1.0/obj/Debug/net10.0/rjsmcshtml.dswa.cache.json
@@ -34,6 +33,7 @@
 /Users/mihailkliucnikov/Programming/VÄRNAMO YH /Inlämningsuppgifter/Uppfinaren 1.0/obj/Debug/net10.0/Uppfinaren 1.0.dll
 /Users/mihailkliucnikov/Programming/VÄRNAMO YH /Inlämningsuppgifter/Uppfinaren 1.0/obj/Debug/net10.0/refint/Uppfinaren 1.0.dll
 /Users/mihailkliucnikov/Programming/VÄRNAMO YH /Inlämningsuppgifter/Uppfinaren 1.0/obj/Debug/net10.0/Uppfinaren 1.0.pdb
+/Users/mihailkliucnikov/Programming/VÄRNAMO YH /Inlämningsuppgifter/Uppfinaren 1.0/bin/Debug/net10.0/Uppfinaren 1.0.deps.json
+/Users/mihailkliucnikov/Programming/VÄRNAMO YH /Inlämningsuppgifter/Uppfinaren 1.0/bin/Debug/net10.0/Uppfinaren 1.0.runtimeconfig.json
 /Users/mihailkliucnikov/Programming/VÄRNAMO YH /Inlämningsuppgifter/Uppfinaren 1.0/obj/Debug/net10.0/Uppfinaren 1.0.genruntimeconfig.cache
 /Users/mihailkliucnikov/Programming/VÄRNAMO YH /Inlämningsuppgifter/Uppfinaren 1.0/obj/Debug/net10.0/ref/Uppfinaren 1.0.dll
-/Users/mihailkliucnikov/Programming/VÄRNAMO YH /Inlämningsuppgifter/Uppfinaren 1.0/obj/Debug/net10.0/Uppfinaren 1.0.sourcelink.json

@@ -5,38 +5,9 @@ public partial class Program
 {
     private static void Main(string[] args)
     {
-        // Initialize the in-memory artwork repository with data from JSON file
-        var artworkRepository = new InMemoryArtworkRepository();
-        string artworkJsonPath = "Models/Data/artworks.json";
-        if (File.Exists(artworkJsonPath))
-        {
-            string json = File.ReadAllText(artworkJsonPath);
-            var artworkData = JsonSerializer.Deserialize<ArtworkData>(json);
-            if (artworkData != null)
-            {
-                artworkRepository.InitializeArtworks(artworkData.Artworks);
-            }
-        }
-
-        // Initialize the in-memory inventor repository with data from JSON file
-        var inventorRepository = new InMemoryInventorRepository();
-        string inventorJsonPath = "Models/Data/inventors.json";
-        if (File.Exists(inventorJsonPath))
-        {
-            string json = File.ReadAllText(inventorJsonPath);
-            var inventorData = JsonSerializer.Deserialize<InventorData>(json);
-            if (inventorData != null)
-            {
-                inventorRepository.InitializInventors(inventorData.Inventors);
-            }
-        }
-
-
         var builder = WebApplication.CreateBuilder(args);
 
         // Add services to the container.
-        builder.Services.AddSingleton<IInventorRepository>(inventorRepository);
-        builder.Services.AddSingleton<IArtworkRepository>(artworkRepository);
         builder.Services.AddControllersWithViews();
 
         var app = builder.Build();
@@ -52,7 +23,7 @@ public partial class Program
         app.UseHttpsRedirection();
         app.UseRouting();
 
-        app.UseAuthorization();
+        //app.UseAuthorization();
 
         app.MapStaticAssets();
 

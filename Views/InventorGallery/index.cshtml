@@ -1,0 +1,15 @@
+@using Uppfinaren_1._0.Models;
+@model IEnumerable<Inventor>
+@{
+    ViewData["Title"] = "Inventor Gallery";
+}
+<h1>Inventor Gallery</h1>
+<ul>
+    @foreach (Inventor inventor in Model)
+    {
+        <li>
+            <img src="@inventor.ImageUrl" alt="" style="width:300px; height: 300px;"">
+            <a asp-action="Info" asp-route-id="@inventor.Id">@inventor.Name</a>
+        </li>
+    }
+</ul>

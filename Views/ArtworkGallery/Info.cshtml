@@ -1,0 +1,11 @@
+@using Uppfinaren_1._0.Models
+@model Artwork
+
+<h1>@Model.Title</h1>
+<img src="@Model.ImageUrl" alt="" style="width:300px; height: 300px;">
+<div>
+    <p>Category: @Model.Category</p>
+    <p>Creator: @Model.Inventor</p>
+    <p>@Model.Description</p>
+
+</div>

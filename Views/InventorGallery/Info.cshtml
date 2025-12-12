@@ -1,0 +1,12 @@
+@using Uppfinaren_1._0.Models;
+@model Inventor
+
+<h1>@Model.Name</h1>
+<img  src="@Model.ImageUrl" alt="Brilliant photo of @Model.Name" style="width: 300px; height: 300px;"/>
+<p>@Model.Description</p>
+<h2>Some of the Inventions:</h2>
+<h2>How to contact this brilliant mind?</h2>
+<p>Email: @Model.Email</p>
+<p>Phone: @Model.PhoneNumber</p>
+<p>Other means of contacting: @Model.OtherWayToContact</p>
+<a href="/InventorGallery">Back to Inventor Gallery</a>
