@@ -4,17 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/site.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <script src="/js/site.js"></script>
-    <title>Uppfinnarens affär</title>
+
+    <title>Magnum Opus</title>
 </head>
+
 <body>
     <header>
+        <h1>Magnum Opus</h1>
         <nav>
             <ul>
-                <li><a asp-controller="InventorGallery" asp-action="Index">Inventor Gallery</a></li>
-                <li><a asp-controller="ArtworkGallery" asp-action="Index">Artwork Gallery</a></li>
+                <li><a asp-controller="InventorGallery" asp-action="Index">Inventors</a></li>
+                <li><a asp-controller="ArtworkGallery" asp-action="Index">Inventions</a></li>
             </ul>
         </nav>
+    </header>
     <main>
         @RenderBody()
     </main>

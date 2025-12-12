@@ -101,6 +101,40 @@ public class InMemoryArtworkRepository : IArtworkRepository
             "img/artworks/deathEggRobot.png",
             "Egg Battle bots"
         ),
+        new Artwork(
+            10,
+            "Egg Dragoon",
+            "Dr. Eggman",
+            @"A heavily armed combat mech engineered specifically to counter super fast hedgehogs and ruin their day.
+    The Egg Dragoon combines jet propulsion, energy shields, missile barrages, and a cockpit designed for
+    dramatic speeches mid battle. Deployed as a last resort, it represents Eggman at his most focused,
+    most furious, and most unwilling to accept defeat like an adult.",
+            "img/artworks/eggDragoon.png",
+            "Egg Battle bots"
+        ), 
+        new Artwork(
+            11,
+            "SWATbots",
+            "Dr. Robotnik",
+            @"Mass produced robotic enforcers built to patrol, suppress, and generally ruin everyone’s day.
+    SWATbots are fast, heavily armed, and programmed with unwavering loyalty to Eggman’s empire.
+    Deployed in squads, they excel at crowd control, base defense, and proving that efficiency
+    is scarier than genius when it comes in bulk.",
+            "img/artworks/SWATbots.png",
+            "Security robots"
+        ), 
+        new Artwork(
+            12,
+            "Stupidity Ray",
+            "Dr. Robotnik",
+            @"A deceptively simple ray weapon designed to dramatically lower the intelligence of its targets.
+    The Stupidity Ray doesn’t destroy cities or flatten armies; it does something far worse by
+    making its victims incapable of coherent thought, strategy, or basic problem solving.
+    Created as a psychological weapon, it perfectly captures Eggman’s belief that the easiest
+    enemy to defeat is one who can no longer think.",
+            "img/artworks/stupidityRay.png",
+            "Mind control devices"
+)
     };
     private int _nextId = 1;
 

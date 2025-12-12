@@ -1,31 +1,151 @@
-html {
-  font-size: 14px;
+.inventorCard {
+  background: #f5f7fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 1em 1.5em;
+  margin-bottom: 1.2em;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 220px;
+  max-width: 400px;
+}
+.inventorCard .inventor-name {
+  font-weight: 600;
+  color: #1a4b7a;
+  font-size: 1.1em;
+  margin-bottom: 0.3em;
+}
+.inventorCard .inventor-details {
+  color: #444;
+  font-size: 0.98em;
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', Arial, sans-serif;
+  background: #f9f9f9;
+  color: #222;
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+header {
+  background: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: center;
+  padding: 1.5em 0 1em 0;
+  font-size: 2em;
+  font-weight: bold;
+  margin-bottom: 2em;
 }
 
-html {
-  position: relative;
-  min-height: 100%;
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+}
+nav ul a {
+  color: #1a4b7a;
+  text-decoration: none;
+  font-size: 1.1em;
+  padding: 0.2em 0.5em;
+  border-radius: 4px;
+  transition: background 0.2s, color 0.2s;
+}
+nav ul a:hover {
+  background: #e6eaff;
+  color: #0d2c4a;
 }
 
-body {
-  margin-bottom: 60px;
+main {
+  max-width: 900px;
+  margin: 2em auto;
+  padding: 2em 1.5em;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
 }
 
-.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
-  color: var(--bs-secondary-color);
-  text-align: end;
+main h1 {
+  color: #1a4b7a;
+  font-size: 2em;
+  margin-bottom: 1em;
 }
 
-.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
-  text-align: start;
+.inventionGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5em;
+  justify-content: center;
 }
+
+.inventionCardWrapper {
+  background: #f5f7fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 1em;
+  margin-bottom: 1.5em;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+  text-align: center;
+  width: 18em;
+  min-height: 15em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.inventionCardWrapper a {
+  font-size: 1.2em;
+  color: #1a4b7a;
+  margin-bottom: 0.5em;
+}
+.inventionCardWrapper img {
+  width: 8em;
+  height: 8em;
+  object-fit: contain;
+  margin-bottom: 0.5em;
+}
+
+.inventors-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5em 0;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+}
+.inventors-list li {
+  padding: 0.7em 1.2em;
+  border-bottom: 1px solid #ececec;
+}
+.inventors-list li:last-child {
+  border-bottom: none;
+}
+.inventor-name {
+  font-weight: 600;
+  color: #1a4b7a;
+}
+
+a {
+  text-decoration: none;
+  color: #1a4b7a;
+  transition: color 0.2s;
+}
+a:hover {
+  color: #0d2c4a;
+  text-decoration: underline;
+}
+
+footer {
+  text-align: center;
+  padding: 1em 0 2em 0;
+  color: #888;
+  font-size: 0.95em;
+  background: none;
+}
+
