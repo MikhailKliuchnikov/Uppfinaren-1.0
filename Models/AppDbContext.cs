@@ -1,12 +1,56 @@
 using System;
+using System.Security.Cryptography.X509Certificates;
+using Microsoft.EntityFrameworkCore;
 
-namespace Uppfinaren_1._0.Models.Data;
+namespace Uppfinaren_1._0.Models;
 
-public class InMemoryArtworkRepository : IArtworkRepository
+public class AppDbContext : DbContext
 {
-    private List<Artwork> _artworks = new List<Artwork>
+    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
     {
-        new Artwork(
+        this.Database.EnsureCreated();
+    }
+    public DbSet<Inventor> Inventors { get; set; }
+    public DbSet<Artwork> Artworks { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+
+        modelBuilder.Entity<Inventor>().HasData(
+            new Inventor(
+            1,
+            "Dr. Eggman",
+            "A brilliant but evil scientist known for his robotic creations and relentless pursuit of world domination.",
+            "img/inventors/Eggman.png",
+            "DrEggman@evilrobotics.com",
+            "555-1234",
+            "123 Robot Lane, Tech City",
+            "N/A"
+        ), 
+        new Inventor(
+            2,
+            "Dr. Robotnick",
+            "A brilliant but evil scientist known for his robotic creations and relentless pursuit of world domination.",
+            "img/inventors/Robotnik.png",
+            "DrRobotnick@evilrobotics.com",
+            "555-1234",
+            "123 Robot Lane, Tech City",
+            "N/A"
+        ),
+        new Inventor(
+            3,
+            "Dr. Nefarious",
+            "Dr. Nefarious is a mad scientist who acts largely out of vengeance and hatred, particularly for his nemeses. In his various quests for galactic domination, he has manipulated many into doing his bidding, but his personal assistant Lawrence has been his main ally throughout. Dr. Nefarious has a disdain for organic life-forms, which he refers to as 'squishies', though he sometimes allies with and deploys them depending on his needs.",
+            "/img/inventors/DrNefarious.png",
+            "NefariousGenius@ihatesquishies.com",
+            "1234-123",
+            "Solana Galaxy, Biobliterator",
+            "Secret robot chat, nickname: 'Very smart and attractive robot1885'"
+        )
+        );
+        modelBuilder.Entity<Artwork>().HasData(
+            new Artwork(
             1,
             "Egg Emperor",
             "Dr Eggman",
@@ -52,7 +96,7 @@ public class InMemoryArtworkRepository : IArtworkRepository
             When subtlety inevitably fails, it can unfold into a towering robot mode armed with missiles and plasma blasts. The ultimate statement piece for any anti-organic campaign.",
             "/img/artworks/biobliterator.png",
             "Nefarious superweapons"
-        ), 
+        ),
         new Artwork(
             6,
             "VX-99",
@@ -111,7 +155,7 @@ public class InMemoryArtworkRepository : IArtworkRepository
     most furious, and most unwilling to accept defeat like an adult.",
             "img/artworks/eggDragoon.png",
             "Egg Battle bots"
-        ), 
+        ),
         new Artwork(
             11,
             "SWATbots",
@@ -122,7 +166,7 @@ public class InMemoryArtworkRepository : IArtworkRepository
     is scarier than genius when it comes in bulk.",
             "img/artworks/SWATbots.png",
             "Security robots"
-        ), 
+        ),
         new Artwork(
             12,
             "Stupidity Ray",
@@ -135,23 +179,7 @@ public class InMemoryArtworkRepository : IArtworkRepository
             "img/artworks/stupidityRay.png",
             "Mind control devices"
 )
-    };
-    private int _nextId = 1;
 
-    public void Add(Artwork artwork)
-    {
-        artwork.Id = _nextId++;
-        _artworks.Add(artwork);
+        );
     }
-
-    public Artwork? GetById(int id)
-    {
-        return _artworks.FirstOrDefault(a => a.Id == id);
-    }
-
-    public IEnumerable<Artwork> GetAll()
-    {
-        return _artworks;
-    }
-
 }

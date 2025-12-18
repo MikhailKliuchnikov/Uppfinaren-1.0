@@ -1,30 +1,25 @@
 using Microsoft.AspNetCore.Mvc;
-using System.Text.Json; 
-using Uppfinaren_1._0.Models.Data;
 using Uppfinaren_1._0.Models;
 
 namespace Uppfinaren_1._0.Controllers
 {
     public class InventorGalleryController : Controller
     {
-        public readonly InMemoryInventorRepository _inventorRepository;
-
-        public InventorGalleryController()
+        private readonly AppDbContext _context;
+        public InventorGalleryController(AppDbContext context)
         {
-            _inventorRepository = new InMemoryInventorRepository();
+            _context = context;
         }
 
         public IActionResult Index()
         {
-            var inventors = _inventorRepository.GetAll();
+            var inventors = _context.Inventors.ToList();
             return View(inventors);
         }
         public ActionResult Info(int id)
         {
-            var inventor = _inventorRepository.GetById(id);
+            var inventor = _context.Inventors.FirstOrDefault(i => i.Id == id);
             return View(inventor);
         }
-
-
     }
 }

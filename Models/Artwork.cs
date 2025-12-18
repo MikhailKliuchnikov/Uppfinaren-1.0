@@ -10,13 +10,13 @@ public class Artwork
     public string ? Description { get; set; } = "A humble invention of a brilliant mind.";
     public string ? ImageUrl { get; set; } = "";
     public string ? Category { get; set; } = "Invention";
-    public Artwork(int id, string title, string inventor, string description, string image, string category)
+    public Artwork(int id, string title, string inventor, string description, string imageUrl, string category)
     {
         Id = id;
         Title = title;
         Inventor = inventor;
         Description = description;
-        ImageUrl = image;
+        ImageUrl = imageUrl;
         Category = category;
     } 
 }

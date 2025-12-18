@@ -1,24 +1,23 @@
 using Microsoft.AspNetCore.Mvc;
-using Uppfinaren_1._0.Models.Data;
+using Uppfinaren_1._0.Models;
 
 namespace Uppfinaren_1._0.Controllers
 {
     public class ArtworkGalleryController : Controller
     {
-        private readonly InMemoryArtworkRepository _artworkRepository;
-
-        public ArtworkGalleryController()
+        private readonly AppDbContext _context;
+        public ArtworkGalleryController(AppDbContext context)
         {
-            _artworkRepository = new InMemoryArtworkRepository();
+            _context = context;
         }
 
         public ActionResult Index()
         {
-            return View(_artworkRepository.GetAll());
+            return View(_context.Artworks.ToList());
         }
         public ActionResult Info(int id)
         {
-            var artwork = _artworkRepository.GetById(id);
+            var artwork = _context.Artworks.FirstOrDefault(a => a.Id == id);
             return View(artwork);
         }
     }

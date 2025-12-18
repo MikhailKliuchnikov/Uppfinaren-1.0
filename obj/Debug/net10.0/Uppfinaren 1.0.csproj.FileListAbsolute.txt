@@ -37,3 +37,8 @@
 /Users/mihailkliucnikov/Programming/VÄRNAMO YH /Inlämningsuppgifter/Uppfinaren 1.0/obj/Debug/net10.0/Uppfinaren 1.0.genruntimeconfig.cache
 /Users/mihailkliucnikov/Programming/VÄRNAMO YH /Inlämningsuppgifter/Uppfinaren 1.0/obj/Debug/net10.0/ref/Uppfinaren 1.0.dll
 /Users/mihailkliucnikov/Programming/VÄRNAMO YH /Inlämningsuppgifter/Uppfinaren 1.0/obj/Debug/net10.0/compressed/3sh1zdgaf8-{0}-1tz1qujg3g-1tz1qujg3g.gz
+/Users/mihailkliucnikov/Programming/VÄRNAMO YH /Inlämningsuppgifter/Uppfinaren 1.0/bin/Debug/net10.0/Microsoft.EntityFrameworkCore.dll
+/Users/mihailkliucnikov/Programming/VÄRNAMO YH /Inlämningsuppgifter/Uppfinaren 1.0/bin/Debug/net10.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+/Users/mihailkliucnikov/Programming/VÄRNAMO YH /Inlämningsuppgifter/Uppfinaren 1.0/bin/Debug/net10.0/Microsoft.EntityFrameworkCore.InMemory.dll
+/Users/mihailkliucnikov/Programming/VÄRNAMO YH /Inlämningsuppgifter/Uppfinaren 1.0/obj/Debug/net10.0/Uppfinaren 1.0.csproj.AssemblyReference.cache
+/Users/mihailkliucnikov/Programming/VÄRNAMO YH /Inlämningsuppgifter/Uppfinaren 1.0/obj/Debug/net10.0/Uppfinar.08105BDF.Up2Date

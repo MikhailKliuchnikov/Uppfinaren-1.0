@@ -1,5 +1,6 @@
 using System.Text.Json;
-using Uppfinaren_1._0.Models.Data;
+using Microsoft.EntityFrameworkCore;
+using Uppfinaren_1._0.Models;
 
 public partial class Program
 {
@@ -9,6 +10,9 @@ public partial class Program
 
         // Add services to the container.
         builder.Services.AddControllersWithViews();
+        builder.Services.AddDbContext<AppDbContext>(options => 
+        options.UseInMemoryDatabase("webshop")
+        );
 
         var app = builder.Build();
 
@@ -23,7 +27,7 @@ public partial class Program
         app.UseHttpsRedirection();
         app.UseRouting();
 
-        //app.UseAuthorization();
+        app.UseAuthorization();
 
         app.MapStaticAssets();
 
