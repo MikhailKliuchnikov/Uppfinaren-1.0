@@ -19,6 +19,8 @@ namespace Uppfinaren_1._0.Controllers
         public ActionResult Info(int id)
         {
             var inventor = _context.Inventors.FirstOrDefault(i => i.Id == id);
+            if (inventor == null) return NotFound();
+            inventor.Inventions = _context.Artworks.Where(a => a.InventorId == id).ToList();
             return View(inventor);
         }
     }

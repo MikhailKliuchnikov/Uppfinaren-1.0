@@ -11,9 +11,16 @@ namespace Uppfinaren_1._0.Controllers
             _context = context;
         }
 
-        public ActionResult Index()
+        public IActionResult Index(string? category = null)
         {
-            return View(_context.Artworks.ToList());
+            var allArtworks = _context.Artworks.ToList();
+            var filtered = string.IsNullOrEmpty(category)
+                ? allArtworks
+                : allArtworks.Where(a => a.Category == category);
+
+            ViewBag.Categories = InventionCategories.Categories;
+            ViewBag.SelectedCategory = category;
+            return View(filtered);
         }
         public ActionResult Info(int id)
         {

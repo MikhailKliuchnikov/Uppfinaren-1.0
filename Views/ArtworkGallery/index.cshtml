@@ -2,17 +2,56 @@
 @model IEnumerable<Artwork>
 @{
     ViewData["Title"] = "Inventor Gallery";
-}
-<h1>Glorious inventions gallery</h1>
-<div class="inventionGrid">
-    @foreach (Artwork artwork in Model)
-    {
-        <div class="inventionCardWrapper">
 
-            <a asp-action="Info" asp-route-id="@artwork.Id">@artwork.Title</a>
-            <img src="@artwork.ImageUrl" alt="" "">
-            <p>@artwork.Description</p>
-            <p>Inventor: @artwork.Inventor</p>
+}
+
+<h1 style="font-size: 60px; padding: 0; margin:0"><a asp-action="Index" asp-route-category="@null">The gallery of inventions</a></h1>
+
+<div class="inventionsHeader">
+    @foreach (string cat in ViewBag.Categories)
+    {
+        <div class="inventionHeaderWrapper">
+            @if(ViewBag.SelectedCategory != null && ViewBag.SelectedCategory == cat )
+            {
+            <span class="active">@cat</span>
+            } 
+            else 
+            {
+            <a asp-action="Index" asp-route-category="@cat">@cat</a>
+            }
         </div>
     }
 </div>
+
+
+@if (ViewBag.SelectedCategory == null)
+{
+    <div class="inventionGrid">
+        @foreach (Artwork artwork in Model)
+        {
+
+            <div class="inventionCardWrapper">
+                <a asp-action="Info" asp-route-id="@artwork.Id">@artwork.Title</a>
+                <img src="@artwork.ImageUrl" alt="" "">
+                <p>Category: @artwork.Category</p>
+                <p>Inventor: @artwork.Inventor</p>
+                <p>@artwork.Description</p>
+            </div>
+        }
+    </div>
+}
+else
+{
+    <div class="inventionGrid">
+        @foreach (Artwork filteredArtwork in Model)
+        {
+            <div class="inventionCardWrapper">
+                <a asp-action="Info" asp-route-id="@filteredArtwork.Id">@filteredArtwork.Title</a>
+                <img src="@filteredArtwork.ImageUrl" alt="" "">
+                <p>Category: @filteredArtwork.Category</p>
+                <p>Inventor: @filteredArtwork.Inventor</p>
+                <p>@filteredArtwork.Description</p>
+            </div>
+        }
+    </div>
+}

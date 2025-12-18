@@ -1,82 +1,178 @@
-.inventorCard {
-  background: #f5f7fa;
-  border: 1px solid #e0e0e0;
-  border-radius: 10px;
-  padding: 1em 1.5em;
-  margin-bottom: 1.2em;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.03);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  min-width: 220px;
-  max-width: 400px;
-}
-.inventorCard .inventor-name {
-  font-weight: 600;
-  color: #1a4b7a;
-  font-size: 1.1em;
-  margin-bottom: 0.3em;
-}
-.inventorCard .inventor-details {
-  color: #444;
-  font-size: 0.98em;
-}
 
+:root {
+  --1: #1a1a2e;
+  --2: #0f3460;
+  --3: #533483;
+  --4: #e94560;
+  --5: #f5f7fa;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
 html, body {
   height: 100%;
   margin: 0;
   padding: 0;
   font-family: 'Inter', Arial, sans-serif;
-  background: #f9f9f9;
-  color: #222;
+  background: linear-gradient(135deg, var(--1) 0%, var(--2) 40%, var(--4) 100%);
+  color: #e0e0e0;
 }
 
+.active {
+  color: white;
+  font-weight: 1000;
+}
+/* Header and main*/
+
 header {
-  background: #fff;
-  border-bottom: 1px solid #e0e0e0;
+  background: linear-gradient(90deg, var(--2) 0%, var(--4) 100%);
+  border-bottom: 3px solid var(--3);
   text-align: center;
-  padding: 1.5em 0 1em 0;
   font-size: 2em;
   font-weight: bold;
   margin-bottom: 2em;
+  color: #7d7d7d;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 8px #000, 0 0 2px var(--4);
+}
+header h1{
+  color: #fff;
+  text-shadow: 0 0 8px #fff, 0 0 2px var(--4);
 }
 
-nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  gap: 2em;
-}
 nav ul a {
-  color: #1a4b7a;
+  color: var(--4);
   text-decoration: none;
   font-size: 1.1em;
   padding: 0.2em 0.5em;
   border-radius: 4px;
-  transition: background 0.2s, color 0.2s;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(233,69,96,0.15);
+  display: grid;
+  grid-template-columns: repeat();
 }
 nav ul a:hover {
-  background: #e6eaff;
-  color: #0d2c4a;
+  background: linear-gradient(90deg, var(--3) 0%, var(--4) 100%);
+  color: #fff;
+  box-shadow: 0 0 16px 2px var(--4), 0 0 4px #fff;
+  text-shadow: 0 0 8px #fff, 0 0 2px var(--4);
 }
 
 main {
-  max-width: 900px;
+  max-width: 95vw;
   margin: 2em auto;
   padding: 2em 1.5em;
   background: #fff;
   border-radius: 16px;
   box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+main {
+  max-width: 95vw;
+  margin: 2em auto;
+  padding: 2em 1.5em;
+  background: linear-gradient(120deg, #23234b 0%, var(--3) 100%);
+  border-radius: 20px;
+  box-shadow: 0 4px 32px 0 var(--2), 0 0 0 4px var(--4) inset;
+  border: 2px solid var(--4);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 main h1 {
-  color: #1a4b7a;
-  font-size: 2em;
+  color: var(--4);
+  font-size: 2.2em;
   margin-bottom: 1em;
+  text-shadow: 0 2px 8px var(--2), 0 0 2px #fff;
+}
+.welcomeButton {
+  border: 2px solid rgb(99, 37, 193);
+  border-radius: 24px;
+  text-align: center;
+  width: 40em;
+}
+.welcomeButton a {
+  font-size: 34px;
+  font-weight: 500;
+  color: blue;
+  margin: 30px
+}
+.welcomeButton a:hover {
+  color: green;
 }
 
+
+/* Inventors grid layout */
+.inventorsGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2em;
+  justify-content: center;
+  margin: 2em 0;
+}
+
+.inventorCard {
+  background: linear-gradient(135deg, #23234b 0%, var(--4) 100%);
+  border: 2px solid var(--4);
+  border-radius: 18px;
+  padding: 1.2em 1.5em;
+  margin-bottom: 1.2em;
+  box-shadow: 0 4px 24px 0 var(--2), 0 0 0 4px var(--3) inset;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 220px;
+  max-width: 340px;
+  color: #fff;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  position: relative;
+}
+.inventorCard:hover {
+  transform: scale(1.04) rotate(1deg);
+  box-shadow: 0 8px 32px 0 var(--4), 0 0 0 6px #fff inset;
+  border-color: #fff;
+  z-index: 2;
+}
+.inventorCard .inventor-name {
+  font-weight: 700;
+  color: var(--4);
+  font-size: 1.2em;
+  margin-bottom: 0.3em;
+  text-shadow: 0 1px 4px var(--2);
+}
+.inventorCard .inventor-details {
+  color: #e0e0e0;
+  font-size: 1em;
+  margin-bottom: 0.5em;
+}
+.inventorCard img {
+  width: 6em;
+  height: 6em;
+  object-fit: contain;
+  border-radius: 10px;
+  border: 2px solid var(--3);
+  box-shadow: 0 2px 12px var(--2);
+  background: #fff2;
+  margin-bottom: 0.7em;
+  align-self: center;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+.inventorCard:hover img {
+  box-shadow: 0 4px 24px var(--4), 0 0 0 4px #fff inset;
+  border-color: var(--4);
+}
+
+
+
+/*Inventions grid */
 .inventionGrid {
   display: flex;
   flex-wrap: wrap;
@@ -85,67 +181,121 @@ main h1 {
 }
 
 .inventionCardWrapper {
-  background: #f5f7fa;
-  border: 1px solid #e0e0e0;
-  border-radius: 10px;
-  padding: 1em;
+  background: linear-gradient(135deg, #23234b 0%, var(--4) 100%);
+  border: 2px solid var(--4);
+  border-radius: 18px;
+  padding: 1em 1.2em;
   margin-bottom: 1.5em;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+  box-shadow: 0 4px 24px 0 var(--2), 0 0 0 4px var(--3) inset;
   text-align: center;
   width: 18em;
   min-height: 15em;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+.inventionCardWrapper:hover {
+  transform: scale(1.04) rotate(-1deg);
+  box-shadow: 0 8px 32px 0 var(--4), 0 0 0 6px #fff inset;
+  border-color: #fff;
+  z-index: 2;
 }
 .inventionCardWrapper a {
-  font-size: 1.2em;
-  color: #1a4b7a;
-  margin-bottom: 0.5em;
+    align-self: flex-start;
+    margin-bottom: 0.5em;
+    margin-top: 0;
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+    font-family: 'Fugaz One', 'Inter', Arial, sans-serif;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 8px var(--4), 0 0 2px #fff;
+    background: none;
+    border: none;
+    transition: color 0.2s, text-shadow 0.2s;
 }
+.inventionCardWrapper a:hover {
+    color: var(--4);
+    text-shadow: 0 0 8px #fff, 0 0 2px var(--4);
+}
+
 .inventionCardWrapper img {
   width: 8em;
   height: 8em;
   object-fit: contain;
   margin-bottom: 0.5em;
+  border-radius: 12px;
+  border: 2px solid var(--3);
+  box-shadow: 0 2px 12px var(--2);
+  background: #fff2;
+  transition: box-shadow 0.2s, border-color 0.2s;
 }
+.inventionCardWrapper:hover img {
+  box-shadow: 0 4px 24px var(--4), 0 0 0 4px #fff inset;
+  border-color: var(--4);
+}
+
+.inventionsHeader {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  margin: 2em;
+  font-size: 30px;
+  font-weight: 700;
+}
+
 
 .inventors-list {
   list-style: none;
   padding: 0;
   margin: 1.5em 0;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+  background: linear-gradient(90deg, #23234b 0%, var(--3) 100%);
+  border-radius: 12px;
+  box-shadow: 0 2px 12px var(--2), 0 0 0 3px var(--4) inset;
+  border: 2px solid var(--4);
 }
 .inventors-list li {
   padding: 0.7em 1.2em;
-  border-bottom: 1px solid #ececec;
+  border-bottom: 1px solid var(--4);
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: background 0.2s, color 0.2s;
 }
 .inventors-list li:last-child {
   border-bottom: none;
 }
+.inventors-list li:hover {
+  background: var(--4);
+  color: #fff;
+}
 .inventor-name {
-  font-weight: 600;
-  color: #1a4b7a;
+  font-weight: 700;
+  color: var(--4);
+  text-shadow: 0 1px 4px var(--2);
 }
 
 a {
   text-decoration: none;
-  color: #1a4b7a;
-  transition: color 0.2s;
+  color: var(--4);
+  transition: color 0.2s, text-shadow 0.2s;
 }
 a:hover {
-  color: #0d2c4a;
-  text-decoration: underline;
+  color: #fff;
+  text-shadow: 0 0 8px var(--4), 0 0 2px #fff;
+  text-decoration: underline wavy var(--4);
 }
 
 footer {
   text-align: center;
   padding: 1em 0 2em 0;
-  color: #888;
-  font-size: 0.95em;
-  background: none;
+  color: var(--4);
+  font-size: 1em;
+  background: linear-gradient(90deg, #23234b 0%, var(--3) 100%);
+  border-top: 2px solid var(--4);
+  letter-spacing: 1px;
+  box-shadow: 0 -2px 12px var(--2);
 }
 

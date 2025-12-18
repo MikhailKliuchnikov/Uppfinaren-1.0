@@ -3,15 +3,13 @@
 @{
     ViewData["Title"] = "Inventor Gallery";
 }
-<h1>Inventors:</h1>
-<ul class="inventors-list">
+<div class="inventorsGrid">
     @foreach (Inventor inventor in Model)
     {
-        <div class="inventorCardWrapper">
-        <li>
-            <img src="@inventor.ImageUrl" alt="" style="width:300px; height: 300px;"">
-            <a asp-action="Info" asp-route-id="@inventor.Id">@inventor.Name</a>
-        </li>
+        <div class="inventorCard">
+            <img src="@inventor.ImageUrl" alt="@inventor.Name" />
+            <a asp-action="Info" asp-route-id="@inventor.Id" class="inventor-name">@inventor.Name</a>
+            <div class="inventor-details">@inventor.Description</div>
         </div>
     }
-</ul>
+</div>
