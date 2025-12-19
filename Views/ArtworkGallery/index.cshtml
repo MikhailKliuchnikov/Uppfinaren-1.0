@@ -24,34 +24,15 @@
 </div>
 
 
-@if (ViewBag.SelectedCategory == null)
-{
-    <div class="inventionGrid">
-        @foreach (Artwork artwork in Model)
-        {
-
-            <div class="inventionCardWrapper">
-                <a asp-action="Info" asp-route-id="@artwork.Id">@artwork.Title</a>
-                <img src="@artwork.ImageUrl" alt="" "">
-                <p>Category: @artwork.Category</p>
-                <p>Inventor: @artwork.Inventor</p>
-                <p>@artwork.Description</p>
-            </div>
-        }
-    </div>
-}
-else
-{
-    <div class="inventionGrid">
-        @foreach (Artwork filteredArtwork in Model)
-        {
-            <div class="inventionCardWrapper">
-                <a asp-action="Info" asp-route-id="@filteredArtwork.Id">@filteredArtwork.Title</a>
-                <img src="@filteredArtwork.ImageUrl" alt="" "">
-                <p>Category: @filteredArtwork.Category</p>
-                <p>Inventor: @filteredArtwork.Inventor</p>
-                <p>@filteredArtwork.Description</p>
-            </div>
-        }
-    </div>
-}
+<div class="inventionGrid">
+    @foreach (Artwork artwork in Model)
+    {
+        <div class="inventionCardWrapper">
+            <a asp-action="Info" asp-route-id="@artwork.Id">@artwork.Title</a>
+            <img src="@artwork.ImageUrl" alt="" "">
+            <p>Category: @artwork.Category</p>
+            <p>Inventor: @artwork.Inventor</p>
+            <p>@artwork.Description</p>
+        </div>
+    }
+</div>

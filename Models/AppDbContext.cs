@@ -27,7 +27,7 @@ public class AppDbContext : DbContext
             "555-1234",
             "123 Robot Lane, Tech City",
             "N/A"
-        ), 
+        ),
         new Inventor(
             2,
             "Dr. Robotnick",
@@ -190,8 +190,100 @@ public class AppDbContext : DbContext
             enemy to defeat is one who can no longer think.",
             "/img/artworks/stupidityRay.png",
             "Gadgets"
+            ),
+        new Artwork(
+            13,
+            2,
+            "Death Egg",
+            "Dr. Robotnik",
+            "A massive space station designed as both a fortress and a symbol of absolute control.",
+            "/img/artworks/deathEgg.png",
+            "Evil bases"
+            ),
+        new Artwork(
+            14,
+            2,
+            "Final Egg Blaster",
+            "Dr Robotnik",
+            "A planetary level weapon capable of obliterating entire regions in a single blast.",
+            "/img/artworks/finalEggBlaster.png",
+            "Evil bases"
+            ),
+        new Artwork(
+            15,
+            1,
+            "Egg Walker",
+            "Dr Eggman",
+            "A bipedal combat walker offering mobility and firepower for ground based domination.",
+            "/img/artworks/eggWalker.png",
+            "Vehicles"  
+            ),
+        new Artwork(
+            16,
+            1,
+            "Egg Fighter",
+            "Dr Eggman",
+            "A nimble aerial vehicle equipped with laser cannons and designed for rapid assaults.",
+            "/img/artworks/eggFighter.png",
+            "Vehicles"
+            ),
+        new Artwork(
+            18,
+            2,
+            "Final Fortress",
+            "Dr Eggman",
+            "A heavily fortified stronghold built as the last line of defense when all other plans fail.",
+            "/img/artworks/finalFortress.png",
+            "Evil bases"
+            ),
+        new Artwork(
+            19,
+            3,
+            "RYNO",
+            "Dr Nefarious",
+            @"The RYNO (an abbreviation for Rip You a New One) is a weapon created by Dr. Nefarious.
+            The R.Y.N.O. has a very large maximum ammo capacity and fires its missiles rapidly. 
+            Once acquired, it is easily the most powerful weapon in the game, 
+            though the player must aim it correctly to conserve ammo, as it consumes its ammo very quickly.",
+            "img/artworks/Ryno.png",
+            "Weapons"
+            ),
+        new Artwork(
+            25,
+            3,
+            "Deplanetizer",
+            "Dr Nefarious",
+            "A massive space based weapon capable of reducing entire planets to debris. Overkill is the point.",
+            "/img/artworks/deplanetizer.png",
+            "Weapons"
+            ),
+        new Artwork(
+            26,
+            3,
+            "Nefarious Hover Pod",
+            "Dr Nefarious",
+            "A personal hover vehicle used by Dr Nefarious for rapid movement and theatrical entrances.",
+            "/img/artworks/hoverpod.png",
+            "Vehicles"
+        ),
+        new Artwork(
+            27,
+            3,
+            "Robot Disguise Device",
+            "Dr Nefarious",
+            "A gadget capable of disguising robots as organic beings. Completely unnecessary and deeply suspicious.",
+            "/img/artworks/hologuise.png",
+            "Gadgets"
+        ),
+        new Artwork(
+            28,
+            3,
+            "Laugh Inducer Ray",
+            "Dr Nefarious",
+            "A malfunctioning yet effective gadget that forces uncontrollable laughter in organic targets. Deeply irritating. Mission accomplished.",
+            "img/artworks/laughRay.png",
+            "Gadgets"
             )
-
         );
     }
 }

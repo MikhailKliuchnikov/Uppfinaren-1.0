@@ -47,7 +47,7 @@ nav ul a {
   font-size: 1.1em;
   padding: 0.2em 0.5em;
   border-radius: 4px;
-  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  transition: background 2.1s, color 2.1s, box-shadow 0.2s;
   box-shadow: 0 2px 8px rgba(233,69,96,0.15);
   display: grid;
   grid-template-columns: repeat();
@@ -179,7 +179,6 @@ main h1 {
   gap: 1.5em;
   justify-content: center;
 }
-
 .inventionCardWrapper {
   background: linear-gradient(135deg, #23234b 0%, var(--4) 100%);
   border: 2px solid var(--4);
@@ -197,7 +196,7 @@ main h1 {
   transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
 }
 .inventionCardWrapper:hover {
-  transform: scale(1.04) rotate(-1deg);
+  transform: scale(1.04);
   box-shadow: 0 8px 32px 0 var(--4), 0 0 0 6px #fff inset;
   border-color: #fff;
   z-index: 2;

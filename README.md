@@ -1,101 +1,50 @@
-# Uppfinnaren 1.0
+# Uppfinnaren 2.0
 
-## Disclaimer: Jag ber om ursäkt men jag orkar inte just nu att formulera allt på svenska. Låt mig veta om det är olämpligt att skriva denna dokument på engelska och nästa gång kommer jag lösa det
+## What is in this README?
 
-Nevertheless:
+1. Reflection, 1 part: Upsprung
+2. Reflection, 2 part: Resultat
 
-## What is inside this README?
+## Reflection, 1 part: Upsprung
 
-1. README part that explains the project, it's structure and how I used MVC design pattern in order to complete the task.
-2. Instruction how to install and start the app
-3. Written reflection on my decisions during this project, what have I done to prepare the app for future development. Which problems I encountered and why have I made those choices I made.
+The original app was build using MVC design pattern with use of ASP.NET framework. It used fake-repositories with hardcoded data and generated two pages with that data. It used different repositories for Artworks and Inventors, with very similair controllers **Index()** for main page and **Info()** for detailed page. Afterwards the controllers generated View through corresponding View files, where with help of **Razor CSHTML**, and  t.ex. **@model IEnumerable/Object** gotten correct data to be displayed on the pages.
 
-## 1. README part that explains the project
+### What was problematic to deal with in the 2.0 version?
 
-The app is the first app I have written by myself ASP.NET framework.
-It is build using MVC (Module, View, Controller) design pattern.
+- Since in the 2.0 version we would need separate pages for caterogies of products, it was a little bit humbling to re-write all the categories of evil inventions so they will not be as "Randomly and funny written" as they were before.
+- Dependency injection syntax and logic were slightly complicated to understand, but since I was mostly following Janne's videos it was not a big problem: I simply had to ask more questions to myself which I find nice.
+- Understanding of **when** and **where** to provide sorting by Category logic for View
 
-The app is a database of some fiction supervillians-mad scientists and their inventions.
+### What was easier to deal with?
 
-Two main classes-objects are **Artwork** (or invention) and **Inventor**.
-They represent the data types the project will be working with. They use Id for sorting, and the rest fields such as Name, Description and etc are appropriate fields: image, contact info etc.
+- Much easier to work with one AppDbContext than having two repositories and interfaces for them.
+- Since the logic for filtering and sending appropriate View() and ViewBag objects was done, it was quite fun doing a dynamic page with Razor. My ArtworkGallery **Index()** has an optional parameter **Category** and if such parameter is **NOT** provided, it displays all the Inventions that exist. On the other hand if a **Category IS** provided, it filters out only those of appropriate category.
 
-Module:
-It has a fake data repositories: *"InMemoryArtwork/InventorRepository"*. Where the data about mad scientists and inventions is hardcoded.
-(The data structure in both Artwork and Inventor is extremely similair so I will be talking about them at the same time)
+## Reflection, 2 part: Resultat
 
-Those repositories implement *IArtwork/InventorRepository* interfaces which both have methods: **Add()**, **GetAll()**, **GetById(int id)**.
-Those methods represent the database logic for searching and manipulating information.
+### File structure changes
 
-Controller:
-HomeController has a classic implementation of ASP.NET and only has **Index()** that gives user a choice of two other controllers.
+- As the result of changing DB logic from fake-repos to InMemoryDb, model files Artwork/InventorRepositories and their Interfaces were deleted and AppDbContext was created with a cleverly overriden "OnModelCreating" function and both data for Artworks and Inventors.
+- HomeView and Controller deleted since they did not provide anything to the app, and default page rerouted to ArtworkGallery in Program.cs.
+- Added a new class InventionCategories.cs which serves as a "Caterogy database", which dynamically creates an sort option in the ArtworkGallery header.
 
-Artwork/Inventor controllers display **Index()** and **Info()** in both cases Index leads to a general page showcasing all **Inventors/Inventions** and **Info()** leads to a detailed page of **Inventor/Invention**.
+### Main functional changes
 
-View:
-In **/Views** I have different folders for Home, **InventorGallery** and **ArtworkGallery**, which are named accordingly to be found by **ArtworkGalleryController** and **InventorGalleryController** later.
+#### ArtworkGalleryController.cs, Index() && ArtworkGallery View
 
-Both **Artwork/Inventor Gallery** have two files named **Index** and **Vies** accordingly to methods in their controllers in order to be found.
+The biggest change in functionality: **ArtworkGalleryController - Index(string? category = null)** now takes an optional string parameter as **category**, then stores all inventions in a **allArtworks** List-variable. Afterwards, creates a **filtered** variable, that checks if **category** parameter is null or present. If no such parameter (null or ""), then **filtered** variable takes **allArtworks** value. If there IS a **category** parameter, then  **filtered** sorts out **allArtworks** using LINQ/SQL method **allArtworks.Where(a => a.Category == category)** and sends it as **Model** in **View(filtered)** object.
+Additionaly, it sends the list of all existing **Categories** from **InventionCategories.cs** in order to dynamically create header buttons in the view. As well as **ViewBag.SelectedCategory = category** to know which one has been chosen.
 
-In **Index** of both Galleries **Model** is used to represent a list of objects which are printed out later with Razor CSHTML through a foreach loop, creating a **div** for each object filled dynamically with information to represent a short version of an object - a **card**.
-By clicking on the **Name** one opens **Info()** for the appropriate object. That is done through providing datasets:
-`<a asp-action="Info" asp-route-id="@inventor.Id">@inventor.Name</a>`
+#### In ArtworkGallery View, the implementation of this logic continues
 
-where:
+- First, the View loops the ViewBag.Categories and creates a header button for each of them. Dynamically creates a link that invokes **Index()** with a **asp-route-category="@categoryname"** which would recursively let one navigate the page.
+- At the same time, it checks if one of those categories is the one that is also SelectedCategory, and gives it .active class for better UI.
+- Secondly, the view loops through @model which has our filtered or not filtered objects and displays them in the page
 
-><asp-action="Info">
+### What I think can be done better
 
-in order to provide information to framework which method is expected to be executed
+- Hard-coded ID's are a pain. I think one could create a system where ID's would dynamically be assigned to appropriate Inventors/Artworks, so it would not be hardcoded data.
+- Caterogies could be assigned dymanically to appropriate objects as well. Now they are hard-coded and sorting happens by comparing strings, but it feels like in a bigger app one would've needed a system where instead of Category:"Robots"; one would use Category: InventionCategories.Categories[1];
 
-><asp-route-id="@inventor.Name">
-
-in order to provide a dynamically generated Id to ensure each separate link leads to appropriate object page.
-
-## 2. Installatiomn
-
-In order to install and start this project one would have to have VSC or any other coding envoroment installed with C#, ASP.NET.
-Simply go to the terminal, navigate yourself whenver you would like to install the project and write:
-> git clone `https://github.com/MikhailKliuchnikov/Uppfinaren-1.0`
-
-After that the app will be appeared in the folder you were in.
-Continuing in your Terminal, write:
-
-> dotnet build
-
-and after it has been completed:
-
-> dotnet watch
-
-This should start the app on the local server and open an according page in your web-browser.
-If its not, you can yourself navigate to that page by copying the localhost: address you have in your terminal.
-
-Now the app should work.
-
-## 3. Reflection
-
-> 1. Tillsammans med projektet så skall du bifoga en skriftlig reflektion där du beskriver de val du har tagit under ditt arbete för att förbereda applikationen för vidare utveckling. Vilka problem du stött på och varför du har tagit de beslut du har tagit.
-
-When I first heard that the application will be expanding I understood that in order to do the future scale in a nice way one has to use the OOP princips in a good way. Therefore I have from the beginning created two main classes: Inventor (Could be many) and Artwork(Could also be many). And made application around those classes first. So in the future would be possible to add logic without changing the "hardcoded" data (if both objects would be just plain objects ).
-
-I also thought that in case the app will be expanding, then using a hardcoded DB in a fake-repository like Janne did in his video would not be the perfect way: what if we will have 100 inventors and 100000 artworks?
-I would go insane hardcoding them in a fake repo.
-
-So my idea at first was to implement a separate json files with objects Inventor and Artwork.
-So I would have a mini-database on a side and in case I want to add/change something with objects I would not have touched the code itself.
-
-That idea with Json files worked out pretty bad, but I managed to learn a few things.
-First: json and C# are possible to use together, but they would not be friends in real life. Java Script Online Notation is called JavaScript for a reason. C# apparently is made for other causes.
-
-Second: ASP.NET is a complex framework, and although it is nice to understand how it works under the hood, in the current learning pattern it is not appropriate. I have been stuck with DependencyInjection and Sinelton type of it for quite a while before I realised that I overcomplicate the given task too much. As well as to properly transfer data from Json to C# fake repo/controller, I would need a separate class just to wrap it up. But on the good side I now know how to deserialise the json in c#. Cool!
-This was the biggest trouble I have faced in development of this app.
-
-I have taken decicions I've taken because MVC design pattern tells me so. I hope I explained the overall MVC structure in the README part of this README. I also like mad scientists so when the task is called "Uppfinnaren" I could not resist. After I managed to connect View Module and Controller together (and finally understood how they are working together), the rest was piece of cake: just dynamically generate some razor cshtml data and make it look somewhat structured. Razor is quite a cool feature.
-
-I wanted very badly to style the page in my own way (mad-scientist style), but I unfortunately running of time so I have asked AI to make a simple and readable design for the page.
-
-In general, I think it is rather a matter of habit: to work with ASP.NET and I am feeling very happy that I (at least as I think) understood this MVC design pattern, because when it works out as it should, I can definetly see why people want to use it as an instrument when designing their pages. It felt really comfortable (after it has been very uncomfortable in the beginning of the week).
-
-I believe my application fullfils all the points in the Kravlista :)
-
-Thank you so much for taking your time to read it all!
-Have a nice day!
+Additionally, now there's cool bad-ass styling and hopefully no methods or code that are unused as you have mentioned in your response earlier!
+Thank you for your time! :)
